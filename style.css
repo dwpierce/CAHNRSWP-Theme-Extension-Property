@@ -120,6 +120,7 @@ body:not(.has-featured-image) .main-header:after {
 	padding-top: 1rem;
 	position: absolute;
 	visibility: hidden;
+	z-index: 1;
 	-webkit-transition: max-height 0.8s ease-in-out, opacity 0.4s ease-in-out, visibility 0.8s ease-in-out;
 	-moz-transition:    max-height 0.8s ease-in-out, opacity 0.4s ease-in-out, visibility 0.8s ease-in-out;
 	-o-transition:      max-height 0.8s ease-in-out, opacity 0.4s ease-in-out, visibility 0.8s ease-in-out;
@@ -347,7 +348,6 @@ body:not(.has-featured-image) .main-header:after {
 	.full-bleed:after {
 		right: -9999rem;
 	}
-
 }
 
 @media screen and (max-width:989px) {
@@ -362,7 +362,7 @@ body:not(.has-featured-image) .main-header:after {
 	}
 }
 
-@media only screen and (max-width: 693px) {
+@media only screen and (max-width:693px) {
 	/* Misc overrides. */
 	.single.gutter .column:not(.gutterless) {
 		padding: 0;
@@ -371,10 +371,31 @@ body:not(.has-featured-image) .main-header:after {
 		background: none;
 	}
 
-	/* CAHNRS quicklinks. */
-	.full-name {
-		max-width: 661px;
-		max-width: calc( 100vw - 10% );
+	/* Headings. */
+	#extension-heading {
+		border-right: none;
+	}
+	.cahnrs-header-group .quicklinks {
+		padding-top: 0;
+	}
+	.cahnrs-header-group .quicklinks dl {
+		background: #5e6a71;
+	}
+	.colors-green .cahnrs-header-group .quicklinks dl {
+		background: #8f7e35;
+	}
+	.colors-orange .cahnrs-header-group .quicklinks dl {
+		background: #b67233;
+	}
+	.colors-blue .cahnrs-header-group .quicklinks dl {
+		background: #4f868e;
+	}
+	.colors-yellow .cahnrs-header-group .quicklinks dl {
+		background: #c69214;
+	}
+	.main-header sup:not(.unset) {
+		display: block;
+		margin: 0.5rem 0 0 2rem;
 	}
 
 	/* Splash font sizes. */
