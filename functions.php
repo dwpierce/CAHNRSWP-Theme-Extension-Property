@@ -18,7 +18,7 @@ function extension_wp_enqueue_scripts() {
 
 add_filter( 'spine_option_defaults', 'extension_spine_option_defaults' );
 /**
- * Reset some defaults for the options set in the customizer for the Spine theme.
+ * Reset certain Spine customizer option defaults.
  */
 function extension_spine_option_defaults( $defaults ) {
 	$defaults['campus_location'] = 'extension';
@@ -28,11 +28,20 @@ function extension_spine_option_defaults( $defaults ) {
 	return $defaults;
 }
 
+add_action( 'customize_register', 'extension_property_customize_register', 999 );
+/**
+ * Modify Spine customizer options.
+ */
+function extension_property_customize_register( $wp_customize ) {
+	$wp_customize->remove_control( 'spine_options[articletitle_show]' );
+	$wp_customize->remove_control( 'campus_location' );
+	$wp_customize->remove_control( 'spine_bleed' );
+	$wp_customize->remove_control( 'spine_theme_style' );
+}
+
 add_action( 'cahnrswp_site_header', 'cahnrswp_default_header', 1 );
 /**
- * Add the default header.
- *
- * Yep, this is verging close to spaghetti. But it opens up some possibilities
+ * Add the default header via hook.
  */
 function cahnrswp_default_header() {
 	get_template_part( 'parts/default-header' );
@@ -55,4 +64,3 @@ function cahnrswp_register_tinymce_table_plugin( $plugin_array ) {
    $plugin_array['table'] = get_stylesheet_directory_uri() . '/tinymce/table-plugin.min.js';
    return $plugin_array;
 }
-
