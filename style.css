@@ -1,12 +1,9 @@
 /*
-Theme Name: WSU Spine - Extension Property
-Theme URI: http://cahnrs.wsu.edu/communications/
+Theme Name: Extension Property
+Description: A WSU Spine child theme for WSU Extension web properties.
+Version: 0.1.0
 Author: CAHNRS Communications, Phil Cable
 Author URI: http://cahnrs.wsu.edu/communications/
-Description: A child theme for WSU Extension web properties.
-Version: 0.1
-License: GNU General Public License v2 or later
-License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Template: WSUWP-spine-parent-theme-20
 */
 
@@ -19,7 +16,7 @@ html {
 	height: 350px;
 }
 
-.home #spine #glue::before {
+.has-featured-image #spine:not(.crimson) #glue:before {
 	opacity: 0.96;
 }
 
