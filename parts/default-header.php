@@ -1,5 +1,8 @@
 <?php $spine_main_header_values = spine_get_main_header(); ?>
-<div class="cahnrs-header-group">
+<div class="cahnrs-header-group<?php
+	echo ( spine_get_option( 'cahnrs_header_fixed' ) ) ? ' fixed' : '';
+	echo ( spine_get_option( 'cahnrs_header_bg_vellum' ) ) ? ' ' . esc_attr( spine_get_option( 'cahnrs_header_bg_vellum' ) ) : '';
+?>">
 		<div id="cahnrs-heading">
 			<a href="http://cahnrs.wsu.edu/">CAHNRS</a>
 			<div class="quicklinks">

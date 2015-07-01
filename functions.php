@@ -1,5 +1,7 @@
 <?php
 
+include_once( 'includes/customizer/customizer.php' ); // Include CAHNRS customizer functionality.
+
 /**
  * Set up a theme hook for the site header.
  */
@@ -14,29 +16,6 @@ add_action( 'wp_enqueue_scripts', 'extension_wp_enqueue_scripts', 21 );
 function extension_wp_enqueue_scripts() {
 	wp_dequeue_style( 'spine-theme-extra' );
 	wp_enqueue_script( 'extension-js', get_stylesheet_directory_uri() . '/js/extension.js', array( 'jquery' ), '' );
-}
-
-add_filter( 'spine_option_defaults', 'extension_spine_option_defaults' );
-/**
- * Reset certain Spine customizer option defaults.
- */
-function extension_spine_option_defaults( $defaults ) {
-	$defaults['campus_location'] = 'extension';
-	$defaults['bleed'] = false;
-	$defaults['articletitle_show'] = false;
-	$defaults['articletitle_header'] = true;
-	return $defaults;
-}
-
-add_action( 'customize_register', 'extension_property_customize_register', 999 );
-/**
- * Modify Spine customizer options.
- */
-function extension_property_customize_register( $wp_customize ) {
-	$wp_customize->remove_control( 'spine_options[articletitle_show]' );
-	$wp_customize->remove_control( 'campus_location' );
-	$wp_customize->remove_control( 'spine_bleed' );
-	$wp_customize->remove_control( 'spine_theme_style' );
 }
 
 add_action( 'cahnrswp_site_header', 'cahnrswp_default_header', 1 );
@@ -63,4 +42,18 @@ add_filter( 'mce_external_plugins', 'cahnrswp_register_tinymce_table_plugin' );
 function cahnrswp_register_tinymce_table_plugin( $plugin_array ) {
    $plugin_array['table'] = get_stylesheet_directory_uri() . '/tinymce/table-plugin.min.js';
    return $plugin_array;
+}
+
+add_filter( 'body_class', 'cahnrswp_custom_body_class' );
+/**
+ * Body classes.
+ */
+function cahnrswp_custom_body_class( $classes ) {
+	if ( get_post_meta( get_the_ID(), 'body_class', true ) ) {
+		$classes[] = esc_attr( get_post_meta( get_the_ID(), 'body_class', true ) );
+	}
+	if ( is_customize_preview() ) {
+		$classes[] = 'customizer-preview';
+	}
+	return $classes;
 }
