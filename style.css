@@ -347,7 +347,7 @@ body:not(.has-featured-image) .main-header:after {
 }
 
 @media screen and (min-width:990px) {
-	/* Transparent spine stuff (need to accommodate for all spine colors) */
+	/* Transparent spine stuff */
 	.has-featured-image:not(.spine-crimson) #binder:before {
 		content: '';
 		height: 100%;
@@ -442,6 +442,9 @@ body:not(.has-featured-image) .main-header:after {
 		background: -ms-linear-gradient(rgba(0,0,0,0) 0%,rgba(0,0,0,0) 50%,#000 100%);
 		background: linear-gradient(rgba(0,0,0,0) 0%,rgba(0,0,0,0) 50%,#000 100%);
 		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#000000',GradientType=0 );
+	}
+	#glue:before {
+		height: 100%;
 	}
 	.has-featured-image #spine:not(.crimson) #glue:before {
 		opacity: 0.9;
