@@ -55,6 +55,7 @@ function cahnrswp_custom_body_class( $classes ) {
 	if ( is_customize_preview() ) {
 		$classes[] = 'customizer-preview';
 	}
+	$classes[] = 'spine-' . esc_attr( spine_get_option( 'spine_color' ) );
 	return $classes;
 }
 
