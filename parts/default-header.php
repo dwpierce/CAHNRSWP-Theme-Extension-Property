@@ -1,14 +1,14 @@
-<?php $spine_main_header_values = spine_get_main_header(); ?>
-
 <?php
-	if ( is_archive() ) {
-		if ( ! is_post_type_archive( 'post' ) || 'post' !== get_post_type() ) {
-			$post_type = get_post_type_object( get_post_type( $post ) );
-			$spine_main_header_values['page_title'] = $post_type->labels->name;
-			$spine_main_header_values['post_title'] = $post_type->labels->name;
-			$spine_main_header_values['sub_header_default'] = $post_type->labels->name;
-		}
+$spine_main_header_values = spine_get_main_header();
+
+if ( is_archive() ) {
+	if ( ! is_post_type_archive( 'post' ) || 'post' !== get_post_type() ) {
+		$post_type = get_post_type_object( get_post_type( $post ) );
+		$spine_main_header_values['page_title'] = $post_type->labels->name;
+		$spine_main_header_values['post_title'] = $post_type->labels->name;
+		$spine_main_header_values['sub_header_default'] = $post_type->labels->name;
 	}
+}
 ?>
 
 <div class="cahnrs-header-group<?php
@@ -45,6 +45,10 @@
 					</dd>
 				</dl>
 			</div>
-		</div><sup class="sup-header" data-section="<?php echo $spine_main_header_values['section_title']; ?>" data-pagetitle="<?php echo $spine_main_header_values['page_title']; ?>" data-posttitle="<?php echo $spine_main_header_values['post_title']; ?>" data-default="<?php echo esc_html($spine_main_header_values['sup_header_default']); ?>" data-alternate="<?php echo esc_html($spine_main_header_values['sup_header_alternate']); ?>"><span class="sup-header-default"><?php echo strip_tags( $spine_main_header_values['sup_header_default'], '<a>' ); ?></span></sup>
+		</div><sup class="sup-header" data-section="<?php echo $spine_main_header_values['section_title']; ?>" data-pagetitle="<?php echo $spine_main_header_values['page_title']; ?>" data-posttitle="<?php echo $spine_main_header_values['post_title']; ?>" data-default="<?php echo esc_html($spine_main_header_values['sup_header_default']); ?>" data-alternate="<?php echo esc_html($spine_main_header_values['sup_header_alternate']); ?>">
+			<span class="sup-header-default"><?php echo strip_tags( $spine_main_header_values['sup_header_default'], '<a>' ); ?></span>
+		</sup>
 	</div>
-		<sub class="sub-header" data-sitename="<?php echo $spine_main_header_values['site_name']; ?>" data-pagetitle="<?php echo $spine_main_header_values['page_title']; ?>" data-posttitle="<?php echo $spine_main_header_values['post_title']; ?>" data-default="<?php echo esc_html($spine_main_header_values['sub_header_default']); ?>" data-alternate="<?php echo esc_html($spine_main_header_values['sub_header_alternate']); ?>"><span class="sub-header-default"><?php echo strip_tags( $spine_main_header_values['sub_header_default'], '<a>' ); ?></span></sub>
+	<sub class="sub-header" data-sitename="<?php echo $spine_main_header_values['site_name']; ?>" data-pagetitle="<?php echo $spine_main_header_values['page_title']; ?>" data-posttitle="<?php echo $spine_main_header_values['post_title']; ?>" data-default="<?php echo esc_html( $spine_main_header_values['sub_header_default'] ); ?>" data-alternate="<?php echo esc_html($spine_main_header_values['sub_header_alternate']); ?>">
+		<span class="sub-header-default"><?php echo strip_tags( $spine_main_header_values['sub_header_default'], '<a>' ); ?></span>
+	</sub>
