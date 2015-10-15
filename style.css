@@ -7,6 +7,9 @@ Author URI: http://cahnrs.wsu.edu/communications/
 Template: spine
 */
 
+.main-header {
+	height: 53px
+}
 .cahnrs-header-group {
 	border-top: 5px solid #532400;
 }
@@ -17,8 +20,6 @@ Template: spine
 }
 #cahnrs-heading + #extension-heading a {
 	-webkit-transition: opacity 0.8s ease-in-out;
-	-moz-transition:    opacity 0.8s ease-in-out;
-	-o-transition:      opacity 0.8s ease-in-out;
 	transition:         opacity 0.8s ease-in-out;
 }
 #cahnrs-heading:hover + #extension-heading a,
@@ -28,8 +29,6 @@ Template: spine
 }
 #extension-heading {
 	-webkit-transition: border-right-color 0.8s ease-in-out;
-	-moz-transition:    border-right-color 0.8s ease-in-out;
-	-o-transition:      border-right-color 0.8s ease-in-out;
 	transition:         border-right-color 0.8s ease-in-out;
 }
 #cahnrs-heading:hover + #extension-heading,
@@ -50,7 +49,6 @@ Template: spine
 #extension-heading .quicklinks li:first-of-type {
 	margin-top: 0;
 }
-
 @media screen and (min-width:694px) {
 	.main-header .cahnrs-header-group:before,
 	.main-header .cahnrs-header-group:after {
@@ -58,9 +56,7 @@ Template: spine
 		top: -5px;
 	}
 }
-
 @media only screen and (max-width: 693px) {
-	/* Headings */
 	#extension-heading {
 		border-right: none;
 	}

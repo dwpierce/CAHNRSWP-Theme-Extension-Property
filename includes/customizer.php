@@ -7,8 +7,11 @@ add_filter( 'spine_option_defaults', 'extension_spine_option_defaults' );
 function extension_spine_option_defaults( $defaults ) {
 	$defaults['campus_location'] = 'extension';
 	$defaults['bleed'] = false;
-	$defaults['articletitle_show'] = false;
-	$defaults['articletitle_header'] = true;
+	if ( is_front_page() && has_post_thumbnail() ) {
+		$defaults['articletitle_show'] = false;
+	}
+	$defaults['articletitle_header'] = false;
+	$defaults['theme_style'] = 'skeletal';
 	return $defaults;
 }
 
@@ -56,9 +59,9 @@ function extension_property_customize_register( $wp_customize ) {
 	));
 
 	$wp_customize->add_setting('spine_options[cahnrs_header_bg_vellum]', array(
-		'default' => '',
+		'default'    => '',
 		'capability' => 'edit_theme_options',
-		'type' => 'option'
+		'type'       => 'option'
 	));
 
 	$wp_customize->add_control('cahnrs_header_bg_vellum', array(
@@ -80,10 +83,10 @@ function extension_property_customize_register( $wp_customize ) {
 	));
 
 	$wp_customize->add_control('cahnrs_header_fixed', array(
-		'label' => 'Fixed',
-		'section' => 'cahnrs_header',
+		'label'    => 'Fixed',
+		'section'  => 'cahnrs_header',
 		'settings' => 'spine_options[cahnrs_header_fixed]',
-		'type' => 'checkbox',
+		'type'     => 'checkbox',
 	));
 
 }
