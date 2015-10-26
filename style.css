@@ -49,6 +49,10 @@ Template: spine
 #extension-heading .quicklinks li:first-of-type {
 	margin-top: 0;
 }
+/* temp */
+div > .article-header {
+	padding: 2rem 2rem 0 2rem;
+}
 @media screen and (min-width:694px) {
 	.main-header .cahnrs-header-group:before,
 	.main-header .cahnrs-header-group:after {
