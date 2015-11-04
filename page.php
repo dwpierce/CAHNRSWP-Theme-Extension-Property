@@ -7,11 +7,12 @@
 
 		<?php if ( have_posts() ) : while( have_posts() ) : the_post(); ?>
 
-      <?php if ( class_exists( 'CWP_Pagebuilder' ) && has_shortcode( get_the_content(), 'section' ) ) : ?>
+      <?php if ( class_exists( 'CWP_Pagebuilder' ) && has_shortcode( get_the_content(), 'row' ) ) : ?>
 
 			<div id="page-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-				<?php if ( ! is_front_page() ) : ?>
+				<?php $hide_title = get_post_meta( get_the_ID(), '_cahnrswp_hide_title', true ); ?>
+				<?php if ( ! is_front_page() && '1' !== $hide_title ) : ?>
 				<header class="article-header">
 					<h1 class="article-title"><?php the_title(); ?></h1>
 				</header>
@@ -23,19 +24,13 @@
 
 			<?php else : ?>
 
-			<section class="row side-right gutter pad-ends">
+			<section class="row single gutter pad-ends">
 
 				<div class="column one">
 
 						<?php get_template_part('articles/article'); ?>
 
 				</div><!--/column-->
-
-				<div class="column two">
-
-					<?php get_sidebar(); ?>
-
-				</div><!--/column two-->
 
 			</section>
 
