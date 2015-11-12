@@ -121,7 +121,7 @@ class WSU_Extension_Property_Theme {
 	}
 
 	/**
-	 * Grant information input markup.
+	 * Post sidebar selection markup.
 	 */
 	public function cahnrswp_post_sidebar( $post ) {
 		wp_nonce_field( 'cahnrswp_sidebar', 'cahnrswp_sidebar_nonce' );
@@ -129,14 +129,14 @@ class WSU_Extension_Property_Theme {
 		?><select name="_cahnrswp_sidebar">
 			<option value="">select</option>
 			<?php
-				global $wp_registered_sidebars;
-    		if ( empty( $wp_registered_sidebars ) ) {
-        	return	$post_id;
-				}
-				$value = get_post_meta( $post->ID, '_cahnrswp_sidebar', true );
-				foreach ( $wp_registered_sidebars as $sidebar ) : ?>
+			global $wp_registered_sidebars;
+			if ( empty( $wp_registered_sidebars ) ) {
+				return	$post_id;
+			}
+			$value = get_post_meta( $post->ID, '_cahnrswp_sidebar', true );
+			foreach ( $wp_registered_sidebars as $sidebar ) : ?>
 				<option value="<?php echo $sidebar['id']; ?>" <?php selected( $value, $sidebar['id'] ); ?>><?php echo $sidebar['name']; ?></option>
-    		<?php endforeach; ?>
+    	<?php endforeach; ?>
 		</select><?php
 	}
 
@@ -165,7 +165,7 @@ class WSU_Extension_Property_Theme {
 			if ( ! wp_verify_nonce( $nonce, 'cahnrswp_hide_title' ) ) {
 				return $post_id;
 			}
-			// Sanitize and save text inputs.
+			// Sanitize and save 'hide title' option.
 			if ( isset( $_POST['_cahnrswp_hide_title'] ) ) {
 				update_post_meta( $post_id, '_cahnrswp_hide_title', 1 );
 			} else {
@@ -181,30 +181,29 @@ class WSU_Extension_Property_Theme {
 			if ( ! wp_verify_nonce( $nonce, 'cahnrswp_sidebar' ) ) {
 				return $post_id;
 			}
-			// Sanitize and save text inputs.
+			// Sanitize and save post sidebar selection.
 			if ( isset( $_POST['_cahnrswp_sidebar'] ) ) {
 				update_post_meta( $post_id, '_cahnrswp_sidebar', sanitize_text_field( $_POST['_cahnrswp_sidebar'] ) );
 			} else {
 				delete_post_meta( $post_id, '_cahnrswp_sidebar' );
 			}
 		}
-
 	}
 
 	/**
 	 * Add Table controls to tinyMCE editor.
 	 */
 	public function mce_buttons_2( $buttons ) {
-		 array_push( $buttons, 'table' );
-		 return $buttons;
+		array_push( $buttons, 'table' );
+		return $buttons;
 	}
 
 	/**
 	 * Register the tinyMCE Table plugin.
 	 */
 	public function mce_external_plugins( $plugin_array ) {
-		 $plugin_array['table'] = get_stylesheet_directory_uri() . '/tinymce/table-plugin.min.js';
-		 return $plugin_array;
+		$plugin_array['table'] = get_stylesheet_directory_uri() . '/tinymce/table-plugin.min.js';
+		return $plugin_array;
 	}
 
 	/**

@@ -50,7 +50,7 @@ if ( is_archive() ) {
 			<span class="sup-header-default"><?php echo strip_tags( $spine_main_header_values['sup_header_default'], '<a>' ); ?></span>
 		</sup>
 	</div>
-	<?php if ( is_front_page() ) : ?>
+	<?php if ( is_front_page() && has_post_thumbnail() ) : ?>
 	<sub class="sub-header" data-sitename="<?php echo $spine_main_header_values['site_name']; ?>" data-pagetitle="<?php echo $spine_main_header_values['page_title']; ?>" data-posttitle="<?php echo $spine_main_header_values['post_title']; ?>" data-default="<?php echo esc_html( $spine_main_header_values['sub_header_default'] ); ?>" data-alternate="<?php echo esc_html($spine_main_header_values['sub_header_alternate']); ?>">
 		<span class="sub-header-default"><?php echo strip_tags( $spine_main_header_values['post_title'], '<a>' ); ?></span>
 	</sub>

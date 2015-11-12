@@ -16,7 +16,7 @@ if ( spine_has_background_image() ) {
 
 	<?php if ( class_exists( 'CWP_Pagebuilder' ) && has_shortcode( get_the_content(), 'row' ) ) : ?>
 
-		<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+		<div id="post-<?php the_ID(); ?>" <?php post_class( 'builder-layout' ); ?>>
 
 			<header class="article-header">
 				<h1 class="article-title"><?php the_title(); ?></h1>
