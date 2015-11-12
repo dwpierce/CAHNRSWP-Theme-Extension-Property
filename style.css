@@ -7,11 +7,13 @@ Author URI: http://cahnrs.wsu.edu/communications/
 Template: spine
 */
 
+/* May include these in the global CAHNRS stylesheet */
 .main-header {
-	height: 53px
+	height: auto;
 }
 .cahnrs-header-group {
-	border-top: 5px solid #532400;
+	border-top: 5px solid #532400; /* Add "extension" class for this if including in the global stylesheet. */
+	white-space: nowrap; /* ...until a better solution is found. */
 }
 #extension-heading {
 	border-right: 1px solid #fff;
@@ -49,11 +51,8 @@ Template: spine
 #extension-heading .quicklinks li:first-of-type {
 	margin-top: 0;
 }
-/* temp */
-div > .article-header {
-	padding: 2rem 2rem 0 2rem;
-}
 @media screen and (min-width:694px) {
+	/* Add "extension" class for this if including in the global stylesheet. */
 	.main-header .cahnrs-header-group:before,
 	.main-header .cahnrs-header-group:after {
 		border-top: inherit;
@@ -61,8 +60,11 @@ div > .article-header {
 	}
 }
 @media only screen and (max-width: 693px) {
+	.cahnrs-header-group {
+		white-space: normal;
+	}
 	#extension-heading {
-		border-right: none;
+		border-right-color: transparent;
 	}
 	.cahnrs-header-group .quicklinks {
 		padding-top: 0;
