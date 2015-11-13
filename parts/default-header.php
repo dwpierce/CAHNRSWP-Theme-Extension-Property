@@ -34,7 +34,7 @@ if ( is_archive() ) {
 			</div>
 		</div><div id="extension-heading">
 			<a href="http://extension.wsu.edu">Extension</a>
-			<div class="quicklinks">
+			<!--<div class="quicklinks">
 				<dl>
 					<dt><a href="http://extension.wsu.edu/">Extension</a></dt><dd>
 						 <ul>
@@ -45,7 +45,7 @@ if ( is_archive() ) {
 						</ul>
 					</dd>
 				</dl>
-			</div>
+			</div>-->
 		</div><sup class="sup-header" data-section="<?php echo $spine_main_header_values['section_title']; ?>" data-pagetitle="<?php echo $spine_main_header_values['page_title']; ?>" data-posttitle="<?php echo $spine_main_header_values['post_title']; ?>" data-default="<?php echo esc_html($spine_main_header_values['sup_header_default']); ?>" data-alternate="<?php echo esc_html($spine_main_header_values['sup_header_alternate']); ?>">
 			<span class="sup-header-default"><?php echo strip_tags( $spine_main_header_values['sup_header_default'], '<a>' ); ?></span>
 		</sup>

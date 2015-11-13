@@ -24,20 +24,20 @@ Template: spine
 	-webkit-transition: opacity 0.8s ease-in-out;
 	transition:         opacity 0.8s ease-in-out;
 }
-#cahnrs-heading:hover + #extension-heading a,
+#cahnrs-heading:hover + #extension-heading a/*,
 #extension-heading:hover > a,
-#extension-heading:hover ~ sup {
+#extension-heading:hover ~ sup*/ {
 	opacity: 0.1;
 }
 #extension-heading {
 	-webkit-transition: border-right-color 0.8s ease-in-out;
 	transition:         border-right-color 0.8s ease-in-out;
 }
-#cahnrs-heading:hover + #extension-heading,
-#extension-heading:hover {
+#cahnrs-heading:hover + #extension-heading/*,
+#extension-heading:hover*/ {
 	border-right-color: rgba( 255, 255, 255, 0.1 );
 }
-#extension-heading:hover .quicklinks {
+/*#extension-heading:hover .quicklinks {
 	max-height: 12rem;
 	opacity: 1;
 	visibility: visible;
@@ -50,7 +50,7 @@ Template: spine
 }
 #extension-heading .quicklinks li:first-of-type {
 	margin-top: 0;
-}
+}*/
 @media screen and (min-width:694px) {
 	/* Add "extension" class for this if including in the global stylesheet. */
 	.main-header .cahnrs-header-group:before,
