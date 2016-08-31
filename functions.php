@@ -24,6 +24,7 @@ class WSU_Extension_Property_Theme {
 		add_filter( 'mce_buttons_2', array( $this, 'mce_buttons_2' ) );
 		add_filter( 'theme_page_templates', array( $this, 'theme_page_templates' ) );
 		add_filter( 'body_class', array( $this, 'body_class' ) );
+		add_filter( 'template_include', array( $this , 'get_pagebuilder_template' ), 11 );
 	}
 
 	/**
@@ -62,6 +63,7 @@ class WSU_Extension_Property_Theme {
 			wp_enqueue_style( 'cahnrs', 'http://repo.wsu.edu/cahnrs/' . $cahnrs_tooling . '/cahnrs.min.css', array( 'spine-theme' ) );
 			wp_enqueue_script( 'cahnrs', 'http://repo.wsu.edu/cahnrs/' . $cahnrs_tooling . '/cahnrs.min.js', array( 'jquery' ) );
 		}
+		
 	}
 
 	/**
@@ -69,7 +71,7 @@ class WSU_Extension_Property_Theme {
 	 */
 	public function dequeue_scripts() {
 		wp_dequeue_style( 'spine-theme-extra' );
-		wp_dequeue_style( 'spine-theme-child' );
+		//wp_dequeue_style( 'spine-theme-child' );
 	}
 
 	/**
@@ -257,6 +259,25 @@ class WSU_Extension_Property_Theme {
 		$classes[] = 'spine-' . esc_attr( spine_get_option( 'spine_color' ) );
 		return $classes;
 	}
+	
+	
+	public function get_pagebuilder_template( $template ){
+		
+		if ( is_singular() ){
+			
+			global $post;
+			
+			if ( has_shortcode( $post->post_content, 'row' ) ){
+				
+				$template = plugin_dir_path( __FILE__ ) . 'single-pagebuilder.php';
+				
+			} // end if
+			
+		} // end if
+		
+		return $template;
+		
+	} // end if
 
 }
 

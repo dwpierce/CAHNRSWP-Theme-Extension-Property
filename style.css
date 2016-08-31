@@ -1,8 +1,32 @@
 /*
 Theme Name: Extension Property
 Description: A WSU Spine child theme for WSU Extension web properties.
-Version: 0.1.1
+Version: 1.0.0
 Author: CAHNRS Communications, Phil Cable
 Author URI: http://cahnrs.wsu.edu/communications/
 Template: spine
 */
+article.pagebuilder-article {
+	/*padding: 2rem 0;*/
+}
+
+article.pagebuilder-article > header {
+	margin: 2rem 2rem 0;
+}
+
+article.pagebuilder-article .row {
+	padding-bottom: 2rem;
+}
+
+article.pagebuilder-article .row .column.bg-color {
+	padding-bottom: 1rem;
+}
+
+article.pagebuilder-article .row .column {
+	padding-bottom: 0;
+}
+
+.column.bg-color {
+	padding: 1.5rem 1.5rem !important;
+	box-sizing: border-box;
+}
